@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Chokokutai&family=Kode+Mono:wght@400..700&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-robotoCondensed bg-primary text-white leading-loose; /* Fondo y fuente principal */
+  }
+
+  /* Estilo para los encabezados h1, h2, h3 */
+  .h1 {
+    @apply text-[25px] xl:text-[80px] leading-[1.1] font-semibold;
+  }
+
+  .h2 {
+    @apply text-[30px] xl:text-[40px] leading-[1.1] font-semibold;
+  }
+
+  .h3 {
+    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+  }
+
+  /* Modificamos los estilos para el modo oscuro */
+  .dark body {
+    @apply bg-darkPrimary text-white; /* Fondo oscuro y texto claro */
+  }
+
+  /* Otros estilos si deseas personalizarlos */
+  .dark .h1 {
+    @apply text-white; /* Color blanco para h1 en modo oscuro */
+  }
+
+  .dark .h2 {
+    @apply text-white; /* Color blanco para h2 en modo oscuro */
+  }
+
+  .dark .h3 {
+    @apply text-white; /* Color blanco para h3 en modo oscuro */
+  }
+}
