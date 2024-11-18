@@ -3,8 +3,6 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Link from 'next/link';
 import { CiMenuFries } from "react-icons/ci";
 import { usePathname } from 'next/navigation';
-import * as Dialog from '@radix-ui/react-dialog';
-
 
 const links = [
     {

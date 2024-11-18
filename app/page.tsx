@@ -1,10 +1,9 @@
-// pages/homepage.tsx (u otro nombre que uses para tu página de inicio)
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { FaGithub, FaLinkedin, FaFacebook, FaTwitter } from 'react-icons/fa';
-import { TypeAnimation } from 'react-type-animation';
+import React from "react";
+import Image from "next/image";
+import { FaGithub, FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
+import { TypeAnimation } from "react-type-animation";
 
 const HomePage = () => {
   return (
@@ -18,7 +17,9 @@ const HomePage = () => {
               <Image
                 src="/juanjo.png"
                 alt="Juan Jose Calvache Ibarra"
-                fill
+                layout="intrinsic"
+                width={300}
+                height={300}
                 className="object-cover"
                 priority
               />
@@ -30,7 +31,7 @@ const HomePage = () => {
           {/* Left Content */}
           <div className="flex-1 text-white text-center lg:text-left">
             <h2 className="text-xl md:text-2xl font-light mb-2 mt-[-20px]">
-              Hello, I'm
+              Hello, I&apos;m
             </h2>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-purple-400">
               <span className="inline-block">Juan Jose </span>
@@ -40,9 +41,9 @@ const HomePage = () => {
               <div className="bg-black text-white p-4 w-auto inline-block rounded-lg">
                 <TypeAnimation
                   sequence={[
-                    'I am an engineering student',
+                    "I am an engineering student",
                     1000,
-                    'I am a web designer',
+                    "I am a web designer",
                     1000,
                   ]}
                   speed={50}
@@ -59,6 +60,7 @@ const HomePage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 border border-fuchsia-500 rounded-full flex items-center justify-center text-fuchsia-500 hover:bg-fuchsia-500 hover:text-white transition-all duration-300"
+                aria-label="Juan Jose Calvache on GitHub"
               >
                 <FaGithub size={24} />
               </a>
@@ -67,6 +69,7 @@ const HomePage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 border border-fuchsia-500 rounded-full flex items-center justify-center text-fuchsia-500 hover:bg-fuchsia-500 hover:text-white transition-all duration-300"
+                aria-label="Juan Jose Calvache on LinkedIn"
               >
                 <FaLinkedin size={24} />
               </a>
@@ -75,6 +78,7 @@ const HomePage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 border border-fuchsia-500 rounded-full flex items-center justify-center text-fuchsia-500 hover:bg-fuchsia-500 hover:text-white transition-all duration-300"
+                aria-label="Juan Jose Calvache on Facebook"
               >
                 <FaFacebook size={24} />
               </a>
@@ -83,6 +87,7 @@ const HomePage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 border border-fuchsia-500 rounded-full flex items-center justify-center text-fuchsia-500 hover:bg-fuchsia-500 hover:text-white transition-all duration-300"
+                aria-label="Juan Jose Calvache on X (formerly Twitter)"
               >
                 <FaTwitter size={24} />
               </a>
@@ -97,7 +102,9 @@ const HomePage = () => {
                 <Image
                   src="/juanjo.png"
                   alt="Juan Jose Calvache Ibarra"
-                  fill
+                  layout="intrinsic"
+                  width={300}
+                  height={300}
                   className="object-cover"
                   priority
                 />

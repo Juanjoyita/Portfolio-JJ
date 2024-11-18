@@ -53,15 +53,15 @@ export default function Projects() {
     },
     {
       number: "2",
-      title: "Task Manager API",
-      description: "API RESTful construida con Node.js y Express para gestión de tareas. Implementa autenticación JWT y base de datos MongoDB.",
-      githubUrl: "https://github.com/tuusuario/task-manager"
+      title: "Task Manager ",
+      description: "This project is a task management web application developed using React and Next.js. It allows users to create, edit and delete tasks and add comments for better collaboration.",
+      githubUrl: "https://github.com/Juanjoyita/TaskManager"
     },
     {
       number: "3",
       title: "Portfolio Website",
-      description: "Sitio web personal desarrollado con Next.js y Tailwind CSS. Diseño responsive y animaciones suaves.",
-      githubUrl: "https://github.com/tuusuario/portfolio"
+      description: "Personal website developed with Next.js and Tailwind CSS. Responsive design and smooth animations.",
+      githubUrl: "https://github.com/Juanjoyita/Portfolio-JJ"
     },
     {
       number: "4",

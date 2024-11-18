@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
+import Image from 'next/image';  // Asegúrate de usar Image de next/image
 
 const ExperienceSection = () => {
   const experiences = [
@@ -12,7 +12,7 @@ const ExperienceSection = () => {
     {
       title: 'Web Designer',
       description: 'Specialized in creating visually appealing and user-friendly designs, with expertise in HTML, CSS, and responsive layouts.',
-      image: '/img/imagen2.jpg', // Asegúrate de que la imagen esté en public/images
+      image: '/images/imagen2.jpg', // Asegúrate de que la imagen esté en public/images
     },
     {
       title: 'Systems Technician',
@@ -36,7 +36,13 @@ const ExperienceSection = () => {
               {/* Card */}
               <div className="relative bg-[#2A0F45]/60 border border-[#8B31FF]/30 rounded-3xl p-8 h-[400px] flex flex-col items-center justify-center text-center transition-all duration-500 hover:bg-[#3B1A64]/80 shadow-lg">
                 {/* Image */}
-                <img src={experience.image} alt={experience.title} className="w-24 h-24 mb-6 object-contain" />
+                <Image
+                  src={experience.image}
+                  alt={experience.title}
+                  width={200} // Especifica el ancho
+                  height={200} // Especifica la altura
+                  className="w-24 h-24 mb-6 object-contain" // Asegúrate de usar el class correcto
+                />
                 
                 {/* Title */}
                 <h3 className="text-white text-2xl font-semibold mb-4 capitalize">

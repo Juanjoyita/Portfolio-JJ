@@ -36,10 +36,12 @@ const ExperienceSection = () => {
               {/* Card */}
               <div className="relative bg-[#2A0F45]/60 border border-[#8B31FF]/30 rounded-3xl overflow-hidden p-8 h-[500px] flex flex-col items-center justify-center text-center transition-all duration-500 hover:bg-[#3B1A64]/80 shadow-lg">
                 {/* Image */}
-                <img 
+                <Image
                   src={experience.image} 
                   alt={experience.title} 
-                  className="w-full h-48 md:h-64 object-cover transition-transform duration-500 group-hover:scale-75" 
+                  width={500} // Especifica el ancho
+                  height={300} // Especifica la altura
+                  className="w-full h-48 md:h-64 object-cover transition-transform duration-500 group-hover:scale-75"
                 />
                 
                 {/* Title */}

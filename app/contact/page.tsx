@@ -6,13 +6,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, MessageSquare, MapPin } from "lucide-react";
 
-interface ContactInfo {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
 const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
