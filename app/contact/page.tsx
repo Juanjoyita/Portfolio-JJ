@@ -1,15 +1,53 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MessageSquare, MapPin } from "lucide-react";
+import { Phone, Mail, MessageSquare } from "lucide-react"; // Eliminado el MapPin importado
+import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSent, setIsSent] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica para manejar el envío del formulario
+    
+    // Configura los datos para el correo
+    const emailData = {
+      name,
+      email,
+      subject,
+      message,
+    };
+
+    try {
+      // Envío del correo con EmailJS
+      const response = await emailjs.send(
+        'service_zsst2os', // ID del servicio de EmailJS
+        'template_bmodx92', // ID de la plantilla
+        emailData, // Datos del formulario
+        'v7optSJ8mZ1L5SFHu' // ID de tu usuario
+      );
+      
+      console.log('Correo enviado:', response.status, response.text);
+      setIsSent(true);
+      setError('');
+      
+      // Limpiar los campos del formulario
+      setName('');
+      setEmail('');
+      setSubject('');
+      setMessage('');
+    } catch (err) {
+      console.error('Error al enviar el correo:', err);
+      setError('Hubo un error al enviar el mensaje. Intenta nuevamente.');
+    }
   };
 
   return (
@@ -33,6 +71,8 @@ const ContactPage = () => {
                   type="text"
                   placeholder="Your Name..."
                   className="bg-white/70 dark:bg-black/70 border-purple-200 dark:border-purple-800"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div>
@@ -40,6 +80,8 @@ const ContactPage = () => {
                   type="email"
                   placeholder="example@email.com"
                   className="bg-white/70 dark:bg-black/70 border-purple-200 dark:border-purple-800"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
@@ -47,66 +89,63 @@ const ContactPage = () => {
                   type="text"
                   placeholder="Subject"
                   className="bg-white/70 dark:bg-black/70 border-purple-200 dark:border-purple-800"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
                 />
               </div>
               <div>
                 <Textarea
                   placeholder="Your Message..."
                   className="bg-white/70 dark:bg-black/70 border-purple-200 dark:border-purple-800 min-h-[120px]"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </div>
               <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 dark:bg-purple-800 dark:hover:bg-purple-900">
                 Send Message
               </Button>
+
+              {/* Mostrar mensaje de éxito o error */}
+              {isSent && <p className="text-green-500 mt-4">¡Mensaje enviado con éxito!</p>}
+              {error && <p className="text-red-500 mt-4">{error}</p>}
             </form>
           </div>
 
           {/* Información de contacto */}
-
-            <div className="grid gap-6">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-purple-200 dark:border-purple-900 rounded-lg">
-                  <Phone className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Phone Number</h3>
-                  <p className="text-gray-600 dark:text-gray-400">+57 3112127113</p>
-                </div>
+          <div className="grid gap-6">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-purple-200 dark:border-purple-900 rounded-lg">
+                <Phone className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
-
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-purple-200 dark:border-purple-900 rounded-lg">
-                  <Mail className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Email Address</h3>
-                  <p className="text-gray-600 dark:text-gray-400">juanjosecalvache944@gmail.com</p>
-                </div>
+              <div>
+                <h3 className="font-semibold">Phone Number</h3>
+                <p className="text-gray-600 dark:text-gray-400">+57 3112127113</p>
               </div>
+            </div>
 
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-purple-200 dark:border-purple-900 rounded-lg">
-                  <MessageSquare className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">WhatsApp</h3>
-                  <p className="text-gray-600 dark:text-gray-400">3112127113</p>
-                </div>
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-purple-200 dark:border-purple-900 rounded-lg">
+                <Mail className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
+              <div>
+                <h3 className="font-semibold">Email Address</h3>
+                <p className="text-gray-600 dark:text-gray-400">juanjosecalvache944@gmail.com</p>
+              </div>
+            </div>
 
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-purple-200 dark:border-purple-900 rounded-lg">
-                  <MapPin className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Our Office</h3>
-                  <p className="text-gray-600 dark:text-gray-400">2443 Oak Ridge Omaha, NE 45065</p>
-                </div>
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-white/50 dark:bg-black/50 backdrop-blur-sm border border-purple-200 dark:border-purple-900 rounded-lg">
+                <MessageSquare className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              </div>
+              <div>
+                <h3 className="font-semibold">WhatsApp</h3>
+                <p className="text-gray-600 dark:text-gray-400">3112127113</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };
 
