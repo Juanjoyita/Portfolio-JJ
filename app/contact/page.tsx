@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MessageSquare } from "lucide-react"; // Eliminado el MapPin importado
+import { Phone, Mail, MessageSquare } from "lucide-react"; 
 import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
@@ -18,7 +18,6 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Configura los datos para el correo
     const emailData = {
       name,
       email,
@@ -27,7 +26,6 @@ const ContactPage = () => {
     };
 
     try {
-      // Envío del correo con EmailJS
       const response = await emailjs.send(
         'service_zsst2os', // ID del servicio de EmailJS
         'template_bmodx92', // ID de la plantilla

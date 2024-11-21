@@ -1,4 +1,3 @@
-// pages/homepage.tsx (u otro nombre que uses para tu página de inicio)
 "use client";
 
 import React from 'react';
@@ -30,7 +29,7 @@ const HomePage = () => {
           {/* Left Content */}
           <div className="flex-1 text-white text-center lg:text-left">
             <h2 className="text-xl md:text-2xl font-light mb-2 mt-[-20px]">
-              Hello, I'm
+              Hello, I&apos;m
             </h2>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-purple-400">
               <span className="inline-block">Juan Jose </span>

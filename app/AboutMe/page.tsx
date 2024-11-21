@@ -72,10 +72,10 @@ const AboutPage = () => {
               Hello
             </h1>
             <p className="text-black text-lg leading-relaxed mb-8 font-light">
-              Estudiante de Ingeniería de Software con experiencia en Python, HTML y CSS,
-              especializado en el desarrollo de aplicaciones web utilizando frameworks como
-              Django, Next.js y Angular. Mi enfoque se centra en crear soluciones eficientes y
-              escalables que ofrezcan una experiencia de usuario excepcional.
+              Software Engineering student with experience in Python, HTML and CSS,
+              specialized in developing web applications using frameworks such as
+              Django, Next.js and Angular. My focus is on creating efficient and scalable
+              solutions that offer an exceptional user experience.
             </p>
             <div className="mt-8">
               <Socials
