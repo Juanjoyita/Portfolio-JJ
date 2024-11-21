@@ -47,9 +47,9 @@ export default function Projects() {
   const projects: Project[] = [
     {
       number: "1",
-      title: "E-commerce Dashboard",
-      description: "Dashboard para tienda online desarrollado con React y Next.js. Incluye gestión de productos, análisis de ventas y panel de administración.",
-      githubUrl: "https://github.com/tuusuario/ecommerce-dashboard"
+      title: "TaskManager",
+      description: "This project is a task management web application developed using React and Next.js. It allows users to create, edit and delete tasks and add comments for better collaboration.",
+      githubUrl: "https://github.com/Juanjoyita/TaskManager"
     },
     {
       number: "2",
