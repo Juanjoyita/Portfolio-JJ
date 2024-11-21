@@ -14,10 +14,19 @@ const ContactPage = () => {
   const [message, setMessage] = useState('');
   const [isSent, setIsSent] = useState(false);
   const [error, setError] = useState('');
+  const [warning, setWarning] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    // Verificar si todos los campos están completos
+    if (!name || !email || !subject || !message) {
+      setWarning('Por favor, complete todos los campos antes de enviar el mensaje.');
+      return;
+    }
+
+    setWarning(''); // Limpiar mensaje de advertencia si todos los campos están completos
+
     const emailData = {
       name,
       email,
@@ -103,7 +112,8 @@ const ContactPage = () => {
                 Send Message
               </Button>
 
-              {/* Mostrar mensaje de éxito o error */}
+              {/* Mostrar mensaje de advertencia, éxito o error */}
+              {warning && <p className="text-red-500 mt-4">{warning}</p>}
               {isSent && <p className="text-green-500 mt-4">¡Mensaje enviado con éxito!</p>}
               {error && <p className="text-red-500 mt-4">{error}</p>}
             </form>
