@@ -47,9 +47,9 @@ export default function Projects() {
   const projects: Project[] = [
     {
       number: "1",
-      title: "TaskManager",
-      description: "This project is a task management web application developed using React and Next.js. It allows users to create, edit and delete tasks and add comments for better collaboration.",
-      githubUrl: "https://github.com/Juanjoyita/TaskManager"
+      title: "Shopping website",
+      description: " online platform where users can browse, select and purchase products or services from various categories",
+      githubUrl: "https://github.com/Juanjoyita/shopping_website"
     },
     {
       number: "2",
